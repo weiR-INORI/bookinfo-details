@@ -1,0 +1,7 @@
+services:
+  details:
+    build: .
+    image: ghcr.io/weir-inori/bookinfo-details:dev
+    ports:
+      - "8080:8080"
+    
