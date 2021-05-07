@@ -1,7 +1,7 @@
 ratings:
-  namespace: student3-bookinfo-prd
+  namespace: student3-bookinfo-dev
   image: ghcr.io/weir-inori/bookinfo-details
-  tag: prd
+  tag: dev
   replicas: 1
   imagePullSecrets: registry-bookinfo
   port: 8080
@@ -10,6 +10,10 @@ ingress:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /$2
-  host: bookinfo.opsta.net
+  host: bookinfo.dev.opsta.net
   path: "/student3/details(/|$)(.*)"
   serviceType: ClusterIP
+extraEnv:
+  SERVICE_VERSION: v2
+  MONGO_DB_URL: mongodb://bookinfo-dev-ratings-mongodb:27017/ratings
+  COMMIT_SHA: CHANGEME

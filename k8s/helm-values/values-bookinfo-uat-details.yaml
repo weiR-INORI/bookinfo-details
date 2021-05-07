@@ -13,3 +13,7 @@ ingress:
   host: bookinfo.uat.opsta.net
   path: "/student3/details(/|$)(.*)"
   serviceType: ClusterIP
+extraEnv:
+  SERVICE_VERSION: v2
+  MONGO_DB_URL: mongodb://bookinfo-dev-ratings-mongodb:27017/ratings
+  COMMIT_SHA: CHANGEME
